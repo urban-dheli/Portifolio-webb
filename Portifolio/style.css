@@ -1,0 +1,266 @@
+/* Gäller Hela eller en stor del av hemsidan */
+
+html {
+    scroll-padding: 10rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    margin: auto;
+
+    background-color: mintcream;
+}
+
+/* Header: Innehåller titel och primary navigation */
+
+header {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background: linear-gradient(to right, #565f69, #1d252d);
+    filter: drop-shadow(0rem 0.2rem 0.5rem rgb(159, 170, 174));
+
+    z-index: 99;
+}
+
+/* Text */
+
+h1 {
+    font-size: 2.5rem;
+    color: whitesmoke;
+}
+
+h2 {
+    color: rgb(32, 32, 32);
+}
+
+p {
+    color: rgb(32, 32, 32);
+}
+
+/* Navigation: Där länkar som ex. "Hem" finns */
+
+.navbar {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: whitesmoke;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 2.5rem;
+}
+
+.navbar a:hover, .subnav:hover .sub-button {
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a:active {
+    background-color: whitesmoke;
+    color: black;
+}
+
+/* Subnavigation: extra länkar under primary navigation */
+
+.subnav {
+    float: left;
+    overflow: hidden;
+    
+    border-radius: 25px 25px;
+    border-radius: 1.5rem 1.5rem 0rem 0rem;
+}
+
+.subnav .sub-button {
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    color: whitesmoke; 
+    background-color: inherit;
+    font-family: inherit;
+    padding: 1rem;
+}
+
+.subnav-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(34, 34, 34);
+    z-index: 1;
+    border-radius: 0rem 1.5rem 1.5rem 1.5rem;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+
+.subnav-content a {
+    float: left;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.subnav-content a:hover {
+    background-color: whitesmoke;
+    color: rgb(34, 34, 34);
+}
+
+.subnav-content a:active {
+    background-color: #d9d9da;
+    color: rgb(32, 32, 32);
+}
+
+.subnav:hover .subnav-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Main: Här finns alla uppgifter */ 
+
+main {
+    position: relative;
+    top: 3.7rem;
+
+    display: flex;
+    gap: 10rem;
+    width: 70%;
+    margin-inline: auto;
+
+    z-index: 1;
+    
+}
+
+/* Uppgifter */
+
+.uppgifter {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.grid-row {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    
+    display: flex;
+    align-items: center;
+    
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+
+    gap: 3.1rem;
+    padding: 3rem;
+    padding-right: 14rem;
+    border-radius: 2rem;
+
+    background-color: white; 
+    filter: drop-shadow(0rem 0rem 0.3rem rgb(223, 228, 229));   
+}
+
+.grid-row:hover {
+    filter: drop-shadow(0rem 0rem 0.5rem rgb(204, 207, 207));
+    scale: 1.02;
+}
+
+.grid-row:active {
+    background-color: rgb(230, 235, 232);
+}
+
+.grid-row-img {
+    position: absolute;
+    right: 0.5rem;
+
+    opacity: 0.9;
+    width: 21%;
+    border-radius: 2rem;
+}
+
+img:hover {
+    opacity: 1.0;
+    scale: 1.05;
+}
+
+/* Aside där man snabbt och enkelt kan ta sig till de olika uppgifterna */
+
+aside {
+
+    position: sticky;
+    top: 30%;
+    height: 100%;
+    width: 10%;
+
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+
+    filter: drop-shadow(0rem 0rem 0.3rem rgb(223, 228, 229));   
+}
+
+aside a {
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+}
+
+aside a:hover {
+    color: skyblue;
+}
+
+aside a:active {
+    color: whitesmoke;
+}
+
+aside:hover {
+    filter: drop-shadow(0rem 0rem 0.5rem rgb(204, 207, 207));
+    scale: 1.04;
+}
+
+.aside-nav {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+/* Footer där man kan få mer information om hemsidan */
+
+footer {
+    position: relative;
+    bottom: 0;
+
+    width: 70%;
+
+    display: flex;
+    justify-content: space-around;
+
+    margin-top: 7rem;
+    margin-inline: auto;
+    padding: 4rem;
+}
+
+.contact-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-mail {
+    width: 6%;
+}
+
+.contact-phone {
+    width: 8%;
+}
+
+.contact-insta {
+    width: 6%;
+}
