@@ -9,7 +9,6 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
     margin: auto;
-
     background-color: rgb(230, 230, 230);
 }
 
@@ -27,6 +26,17 @@ header {
     filter: drop-shadow(0rem 0.2rem 0.5rem rgb(159, 170, 174));
 
     z-index: 99;
+}
+
+.logo-img {
+    max-width: 10%;
+    object-fit: cover;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 /* Text */
