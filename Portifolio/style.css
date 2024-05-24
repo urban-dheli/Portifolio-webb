@@ -1,276 +1,438 @@
-/* Gäller Hela eller en stor del av hemsidan */
+    /* Gäller Hela eller en stor del av hemsidan */
+    /* TODO: ändra färger för din meny */
+    :root {
+        --clr-copy: #3a3a3a;                  /* normal text på sidan */
+        --clr-black: #000;                    /* totalt svart används sparsamt */
+        
+        --clr-primary: hsl(0, 0%, 100%);       /* bakgrundsfärg och primära färgen */
+        --clr-secondary: rgb(236, 236, 236);       /* menyfärg */
+        --clr-accent: skyblue;                 /* highlight CTA-färg  */
+        
+        --clr-white: hsl(0, 0%, 99%);   
+        --clr-dropdown-background: rgb(36, 36, 36);      /* dropdown-menyns bakgrund */
+        
+        --clr-hover: hsl(0, 0%, 29%);           /* hover färg */
+        --clr-active: var(--clr-secondary);          /* färg man klickar */
 
-html {
-    scroll-padding: 10rem;
-    scroll-behavior: smooth;
-}
+        --clr-box-shadow: 0 3px 6px rgb(60, 60, 60);
+        --clr-menu-shadow: var(--clr-box-shadow);    /* ett tips är att använda en mörkare färg av själva dropdown-meny-bakgrunden */    
+        
+        --menu-dropdown-size: 1em;        /* hur stora ska dropdown-menyn vara? */
+        --menu-item-size: 1em;            /* hur stort ska gränssnittet vara? */
+        --border-radius: 0.250rem;        /* rundade kanter */
+    }
 
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
-    margin: auto;
-    background-color: rgb(230, 230, 230);
-}
+    html {
+        scroll-padding: 10rem;
+        scroll-behavior: smooth;
+    }
 
-/* Header: Innehåller titel och primary navigation */
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-header {
-    position: sticky;
-    top: 0;
+        margin: auto;
+        background-color: rgb(230, 230, 230);
+    }
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    img {
+        display: block;
+    }
 
-    background: linear-gradient(to right, #565f69, #1d252d);
-    filter: drop-shadow(0rem 0.2rem 0.5rem rgb(159, 170, 174));
+    /* Header: Innehåller titel och primary navigation */
 
-    z-index: 99;
-}
+    header {
+        position: sticky;
+        top: 0;
 
-.logo-img {
-    max-width: 10%;
-    object-fit: cover;
-}
+        background: linear-gradient(to right, #565f69, #1d252d);
+        /* filter: drop-shadow(0rem 0.2rem 0.5rem rgb(159, 170, 174)); */
 
-.title {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+        z-index: 9;    
+    }
 
-/* Text */
+    .top-header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
-h1 {
-    font-size: 2.5rem;
-    color: whitesmoke;
-}
+    .primary-navigation {
+        display: flex;
+        gap: calc(0.5em + var(--menu-item-size));
+        list-style: none;
+        padding-inline: 0;
+    }
 
-h2 {
-    color: rgb(32, 32, 32);
-}
+    .logo-img {
+        max-width: 10%;
+        object-fit: cover;
+    }
 
-p {
-    color: rgb(32, 32, 32);
-}
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
 
-/* Navigation: Där länkar som ex. "Hem" finns */
+    /* Text */
 
-.navbar {
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-}
+    h1 {
+        font-size: 1.5rem;
+        color: whitesmoke;
+    }
 
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: whitesmoke;
-    text-align: center;
-    padding: 1rem;
-    text-decoration: none;
-    border-radius: 2.5rem;
-}
+    h2 {
+        color: rgb(32, 32, 32);
+    }
 
-.navbar a:hover, .subnav:hover .sub-button {
-    background-color: rgb(34, 34, 34);
-    display: flex;
-    justify-content: space-between;
-}
+    p {
+        color: rgb(65, 65, 65);
+    }
 
-.navbar a:active {
-    background-color: whitesmoke;
-    color: black;
-}
+    /* Navigation: Där länkar som ex. "Hem" finns */
 
-/* Subnavigation: extra länkar under primary navigation */
+    .navbar {
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
 
-.subnav {
-    float: left;
-    overflow: hidden;
-    
-    border-radius: 25px 25px;
-    border-radius: 1.5rem 1.5rem 0rem 0rem;
-}
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: whitesmoke;
+        text-align: center;
+        padding: 1rem;
+        text-decoration: none;
+        border-radius: 2.5rem;
+    }
 
-.subnav .sub-button {
-    font-size: 1rem;
-    border: none;
-    outline: none;
-    color: whitesmoke; 
-    background-color: inherit;
-    font-family: inherit;
-    padding: 1rem;
-}
+    .navbar a:hover, .subnav:hover .sub-button {
+        background-color: rgb(34, 34, 34);
+        display: flex;
+        justify-content: space-between;
+    }
 
-.subnav-content {
-    display: none;
-    position: absolute;
-    background-color: rgb(34, 34, 34);
-    z-index: 1;
-    border-radius: 0rem 1.5rem 1.5rem 1.5rem;
-    padding: 0.5rem;
-    gap: 1rem;
-}
+    .navbar a:active {
+        background-color: whitesmoke;
+        color: black;
+    }
 
-.subnav-content a {
-    float: left;
-    color: whitesmoke;
-    text-decoration: none;
-}
+    .hamburger-button {
+        display: none;
+    }
 
-.subnav-content a:hover {
-    background-color: whitesmoke;
-    color: rgb(34, 34, 34);
-}
+    /* Subnavigation: extra länkar under primary navigation */
 
-.subnav-content a:active {
-    background-color: #d9d9da;
-    color: rgb(32, 32, 32);
-}
+    .subnav {
+        float: left;
+        overflow: hidden;
+        
+        border-radius: 25px 25px;
+        border-radius: 1.5rem 1.5rem 0rem 0rem;
+    }
 
-.subnav:hover .subnav-content {
-    display: flex;
-    justify-content: space-between;
-}
+    .subnav .sub-button {
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        color: whitesmoke; 
+        background-color: inherit;
+        font-family: inherit;
+        padding: 1rem;
+    }
 
-/* Main: Här finns alla uppgifter */ 
+    .subnav-content {
+        display: none;
+        position: absolute;
+        background-color: rgb(34, 34, 34);
+        z-index: 1;
+        border-radius: 0rem 1.5rem 1.5rem 1.5rem;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
 
-main {
-    position: relative;
-    top: 3.7rem;
+    .subnav-content a {
+        float: left;
+        color: whitesmoke;
+        text-decoration: none;
+    }
 
-    display: flex;
-    gap: 10rem;
-    width: 70%;
-    margin-inline: auto;
+    .subnav-content a:hover {
+        background-color: whitesmoke;
+        color: rgb(34, 34, 34);
+    }
 
-    z-index: 1;
-    
-}
+    .subnav-content a:active {
+        background-color: #d9d9da;
+        color: rgb(32, 32, 32);
+    }
 
-/* Uppgifter */
+    .subnav:hover .subnav-content {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.uppgifter {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
+    /* Main: Här finns alla uppgifter */ 
 
-.grid-row {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    
-    display: flex;
-    align-items: center;
-    
-    color: rgb(32, 32, 32);
-    text-decoration: none;
+    main {
+        position: relative;
+        top: 3.7rem;
 
-    gap: 3.1rem;
-    padding: 3rem;
-    padding-right: 14rem;
-    border-radius: 2rem;
+        display: flex;
+        gap: 10rem;
+        width: 60%;
+        margin-inline: auto;
 
-    background-color: white; 
-    filter: drop-shadow(0rem 0rem 0.3rem rgb(223, 228, 229));   
-}
+        z-index: 1;
+    }
 
-.grid-row:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgb(204, 207, 207));
-    scale: 1.02;
-}
+    /* Uppgifter */
 
-.grid-row:active {
-    background-color: rgb(230, 235, 232);
-}
+    .uppgifter {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-.grid-row-img {
-    position: absolute;
-    right: 0.5rem;
+    .grid-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        color: rgb(32, 32, 32);
+        text-decoration: none;
 
-    opacity: 0.9;
-    width: 21%;
-    border-radius: 2rem;
-}
+        gap: 3rem;
+        border-radius: 0.5rem;
 
-img:hover {
-    opacity: 1.0;
-    scale: 1.05;
-}
+        background-color: white; 
+        /* filter: drop-shadow(0rem 0rem 0.3rem rgb(223, 228, 229));    */
+    }
 
-/* Aside där man snabbt och enkelt kan ta sig till de olika uppgifterna */
+    .grid-row:hover {
+        /* filter: drop-shadow(0rem 0rem 0.5rem rgb(204, 207, 207)); */
+        scale: 1;
+    }
 
-aside {
+    .grid-row-text {
+        padding-left: 3rem;
+    }
 
-    position: sticky;
-    top: 30%;
-    height: 100%;
-    width: 10%;
+    .grid-row:active {
+        background-color: rgb(230, 235, 232);
+    }
 
-    background-color: white;
-    padding: 2rem;
-    border-radius: 1rem;
+    .grid-row-img {
+        display: block;
+        max-width: 20%;
+        border-radius: 0.5rem;
+    }
 
-    filter: drop-shadow(0rem 0rem 0.3rem rgb(223, 228, 229));   
-}
+    img:hover {
+        opacity: 1.0;
+    }
 
-aside a {
-    text-decoration: none;
-    color: rgb(32, 32, 32);
-}
+    /* Footer där man kan få mer information om hemsidan */
 
-aside a:hover {
-    color: skyblue;
-}
+    footer {
+        width: 70%;
 
-aside a:active {
-    color: whitesmoke;
-}
+        display: flex;
+        justify-content: space-around;
 
-aside:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgb(204, 207, 207));
-    scale: 1.04;
-}
+        margin-top: 7rem;
+        margin-inline: auto;
+        padding: 4rem;
+    }
 
-.aside-nav {
-    list-style: none;
 
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
 
-/* Footer där man kan få mer information om hemsidan */
+    .contact-row {
+        display: flex;
+        flex-direction: column;
+    }
 
-footer {
-    position: relative;
-    bottom: 0;
+    .contact-mail {
+        width: 10%;
+    }
 
-    width: 70%;
+    .contact-phone {
+        width: 15%;
+    }
 
-    display: flex;
-    justify-content: space-around;
+    .contact-insta {
+        width: 10%;
+    }
 
-    margin-top: 7rem;
-    margin-inline: auto;
-    padding: 4rem;
-}
+    @media(width < 480px) {
+        main {
+            width: 95%;
+        }
 
-.contact-row {
-    display: flex;
-    flex-direction: column;
-}
+        .top-header {
+            width: 90%;
+            margin-inline: auto;
+        }
 
-.contact-mail {
-    width: 6%;
-}
+        .grid-row {
+            gap: 0.7rem;
+        }
 
-.contact-phone {
-    width: 8%;
-}
+        .grid-row-img {
+            max-width: 50%;
+        }
 
-.contact-insta {
-    width: 6%;
-}
+
+        .primary-navigation {
+            position: fixed;
+            inset: 0;
+            top: 3rem;
+
+            justify-content: start;
+            align-items: start;
+            flex-direction: column;
+            
+            padding: 2rem;
+            height: 100%;
+            
+            background: darkgray;
+            opacity: 0;
+
+            transform: translateX(100%);
+            transition: transform 250ms ease-in-out,
+                        opacity 250ms ease-in-out;
+
+                    }
+                    
+        .primary-navigation.open {
+                        transform: translateX(0);
+                        opacity: 1;
+                        z-index: 99;
+        }
+
+        .hamburger-button {
+            all: unset;
+            display: block;
+        }
+
+        footer {
+            width: 95%;
+        }
+
+        .contact-mail {
+            width: 20%;
+        }
+
+        .contact-phone {
+            width: 28%;
+        }
+
+        .contact-insta {
+            width: 20%;
+        }
+    }
+
+    /* link styling */
+    .nav-link,
+    .nav-link:visited {
+        text-decoration: none;
+        color: var(--clr-secondary);
+        
+        font-weight: 500;
+        font-size: calc(var(--menu-item-size) * 1.1);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+        color: var(--clr-accent);
+    }
+
+
+    /* dropdown styling */
+
+    /* länkarna i dropdown-menyerna */
+    li ul li a {
+        display: block;
+
+        /* justera menyobjekten */
+        text-align: left;
+        /* här beräknas storleken på menyobjekten */
+        padding: calc(var(--menu-dropdown-size) / 2) var(--menu-dropdown-size); 
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    /* pil bara för dropdown-menyer i menyer */
+    li .dropdown::after {
+        content: '<';
+        position: absolute;
+        left: 0.3rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--clr-white);
+    }
+
+    .dropdown ul {
+        position: absolute;
+        /* se till att alla submenyer är stängda från början */
+        display: none;
+        
+        list-style: none;
+        margin-inline: 0;
+        padding-inline: 0;
+
+        /* FIXME: ska menyn dyka upp högerjusterad?*/
+        /* right: 0; */
+
+        white-space: nowrap;
+    }
+
+    /* öppna dropdown meny */
+    .dropdown:hover > ul,
+    .dropdown:focus-within > ul {
+        /* FIXME: för horisontell meny: display till flex :) */
+        display: block;
+
+        background: var(--clr-dropdown-background);
+        box-shadow: var(--clr-menu-shadow);
+
+        border-radius: var(--border-radius);
+        z-index: 99;
+    }
+
+    .dropdown ul .dropdown:hover > ul,
+    .dropdown ul .dropdown:focus-within > ul {
+        display: block;
+        /* FIXME: ändra till  om du har högerjusterad meny*/
+        right: 100%; 
+        top: 0;
+    }
+
+    /* markering */
+    .dropdown ul li a:hover,
+    .dropdown ul li a:focus {
+        background: var(--clr-hover);
+        border-radius: var(--border-radius);
+        color: var(--clr-secondary);
+    }
+
+    .dropdown ul li a:active {
+        background: var(--clr-active);
+        color: var(--clr-hover);
+    }
+
+    /* FIXME: vill du ha en linje mellan varje dropdown objekt? 
+    OBS! om du kör "display: flex" där uppe på "dropdown ul:hover" bör du ändra till border-left här */
+    .dropdown ul .dropdown:not(:first-child) {
+        border-top: 1px solid var(--clr-hover);
+    }

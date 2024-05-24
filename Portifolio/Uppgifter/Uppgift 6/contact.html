@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uppgift 6</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="h1-group">
+                <img class="h1-logo" src="/Portifolio-webb/Portifolio/img logos/Webmaster Name.png" alt="Galet cool logga">
+                <h1>WEBB01 - KONTAKT</h1>
+            </div>
+            <nav>
+                <ul class="primary-navigation">
+                    <li><a class="link-header" href="index.html">Hem</a></li>
+                    <li><a class="link-header" href="history.html">Historia</a></li>
+                    <li><a class="link-header" href="DOM.html">DOM</a></li>
+                    <li><a class="link-header" href="#">Grunderna</a></li>
+                    <li><a class="link-header" href="#">Läs mer här</a></li>
+                    <li><a class="link-header" href="#">Om mig</a></li>
+                    <li><a class="link-header selected" href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Kontakta Mig</h2>
+
+            <form action="https://formsubmit.co/alfred.lundstrom@elev.ga.ntig.se" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+
+                <input type="text" id="name" name="name" placeholder="Namn Efternamn" required>
+
+                <input type="email" id="email" name="email" placeholder="namn.efternamn@gmail.com" required>
+
+                <textarea id="message" placeholder="Skriv ditt meddelande här..."></textarea>
+
+                <div class="flex-layout">
+                    <input type="submit" value="skicka formulär">
+                    <input type="reset" value="återställ formulär">
+                </div>
+            </form>
+        </section>
+        <aside>
+           
+        </aside>
+    </main>
+</body>
+</html>

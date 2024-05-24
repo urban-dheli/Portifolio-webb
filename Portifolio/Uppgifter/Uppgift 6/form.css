@@ -1,0 +1,47 @@
+html {
+    font-family: inherit;
+}
+
+input, label {
+    display: block;
+    width: 35%;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0.5rem;
+}   
+
+textarea {
+    width: 60ch;
+    min-height: 20vh;
+    resize: none;
+    padding: 0.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.flex-layout {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}   
+
+@media(width < 480px) {
+    textarea {
+        width: 40ch;
+    }
+
+    input, label {
+        width: 100%;
+    }   
+
+    .flex-layout {
+        display: flex;
+        justify-content: space-between;
+    } 
+}
