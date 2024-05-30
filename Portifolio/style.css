@@ -220,7 +220,7 @@
     .grid-row:hover {
         /* filter: drop-shadow(0rem 0rem 0.5rem rgb(204, 207, 207)); */
         scale: 1.02;
-        background-color: rgb(230, 245, 255);
+        background-color: rgb(244, 249, 252);
     }
 
     .grid-row-text {
